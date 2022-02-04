@@ -51,20 +51,8 @@ public class AirportManagement implements Management {
 
 
     @Override
-    public Flight ticketInfo(Ticket ticket) {
-        int bought = 0;
-        int notBought = 0;
-        for (int i = 0; i < tickets.length; i++) {
-            if (ticket.getId() == 0) {
-                notBought++;
-                System.out.println("Not bought: " + notBought);
-            } else {
-                bought++;
-                System.out.println("Bought: " + bought);
-                break;
-            }
-        }
-        return null;
+    public String ticketInfo() {
+        return "Количество рейсов: " + Flight.getCount() + "\nКоличество купленных билетов: " + Ticket.getCount();
     }
 
     @Override

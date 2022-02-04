@@ -5,6 +5,8 @@ import com.company.enams.Status;
 import com.company.model.Flight;
 import com.company.model.Ticket;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -69,7 +71,7 @@ public class Main {
                     airportManagement.showAllFlights();
                     break;
                 case 4:
-                    airportManagement.ticketInfo(ticket);
+                    airportManagement.ticketInfo();
                     break;
                 case 5:
                     System.out.println("Enter ticket number: ");

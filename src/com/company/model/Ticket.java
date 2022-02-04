@@ -2,6 +2,7 @@ package com.company.model;
 
 
 public class Ticket {
+    static int count = 0;
     private int id;
     private String departure;
     private String place;
@@ -10,6 +11,7 @@ public class Ticket {
 
 
     public Ticket(int id, String departure, String place, String arrival) {
+        count ++;
         this.id = id;
         this.departure = departure;
         this.place = place;
@@ -56,6 +58,14 @@ public class Ticket {
 
     public void setFlight(Flight flight) {
         this.flight = flight;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Ticket.count = count;
     }
 
     @Override

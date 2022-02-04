@@ -5,6 +5,7 @@ import com.company.enams.Status;
 import java.util.Arrays;
 
 public class Flight {
+    static  int count = 0;
     private int id;
     private String departureTime;
     private String arrivalTime;
@@ -16,6 +17,7 @@ public class Flight {
     }
 
     public Flight(int id, String departureTime, String arrivalTime, String airplane, Status status, Ticket[] tickets) {
+        count ++;
         this.id = id;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
@@ -79,6 +81,14 @@ public class Flight {
 
     public void setTickets(Ticket[] tickets) {
         this.tickets = tickets;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Flight.count = count;
     }
 
     @Override
