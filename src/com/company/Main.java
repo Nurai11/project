@@ -2,11 +2,10 @@ package com.company;
 
 import com.company.controller.AirportManagement;
 import com.company.enams.Status;
+import com.company.model.Airplane;
 import com.company.model.Flight;
 import com.company.model.Ticket;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -15,11 +14,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         AirportManagement airportManagement = new AirportManagement();
-        Ticket ticket = new Ticket(12, "8:00", "UK", "13:00");
-        Flight flight1 = new Flight(121, "2", "5", "asa", Status.Flying, new Ticket[2]);
-
-        Flight[] flight = new Flight[3];
-
         boolean check = true;
         int choice = 0;
         while (check) {
@@ -45,7 +39,9 @@ public class Main {
                     newFlight.setArrivalTime(arrivalTime);
 
                     System.out.println("Set the airplane: ");
-                    String airplane = scanner.next();
+                    Airplane airplane = new Airplane();
+                    airplane.setId(scanner.nextInt());
+                    //zapolnit samolet
                     newFlight.setAirplane(airplane);
 
                     System.out.println("Enter status: ");
@@ -60,12 +56,20 @@ public class Main {
                     int ticketNum = scanner.nextInt();
                     newFlight.setId(ticketNum);
 
+                    for (int i = 0; i < newFlight.getTickets().length; i++) {
+                        newFlight.getTickets()[i].setId(i + 1);
+                        newFlight.getTickets()[i].setDeparture("qw2");
+                        newFlight.getTickets()[i].setArrival("wrwer");
+                        newFlight.getTickets()[i].setPlace("werwer");
+                    }
+
                     airportManagement.addNewFlight(newFlight);
                     break;
                 case 2:
                     System.out.println("Enter flight number to buy a ticket: ");
                     int num = scanner.nextInt();
-                    airportManagement.buyingTicketsByFlightNumber(num);
+                    String fullName = scanner.nextLine();
+                    airportManagement.buyingTicketsByFlightNumber(num, fullName);
                     break;
                 case 3:
                     airportManagement.showAllFlights();
