@@ -9,6 +9,8 @@ public class Ticket {
     private String arrival;
     private String fullNameClient;
 
+    public Ticket(){
+    }
     public Ticket(int id, String departure, String place, String arrival, String fullNameClient) {
         count++;
 

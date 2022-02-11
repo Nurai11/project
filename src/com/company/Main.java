@@ -38,10 +38,19 @@ public class Main {
                     String arrivalTime = scanner.next();
                     newFlight.setArrivalTime(arrivalTime);
 
-                    System.out.println("Set the airplane: ");
+                    System.out.println("Set the airplane ");
                     Airplane airplane = new Airplane();
-                    airplane.setId(scanner.nextInt());
-                    //zapolnit samolet
+                    System.out.println("Enter id:");
+                    int airplaneId = scanner.nextInt();
+                    airplane.setId(airplaneId);
+
+                    System.out.println("Enter model: ");
+                    String model = scanner.next();
+                    airplane.setModel(model);
+
+                    System.out.println("Enter type: ");
+                    String type = scanner.next();
+                    airplane.setType(type);
                     newFlight.setAirplane(airplane);
 
                     System.out.println("Enter status: ");
@@ -54,13 +63,16 @@ public class Main {
 
                     System.out.println("Enter ticket number: ");
                     int ticketNum = scanner.nextInt();
-                    newFlight.setId(ticketNum);
+                    newFlight.setTickets(ticketNum);
 
                     for (int i = 0; i < newFlight.getTickets().length; i++) {
-                        newFlight.getTickets()[i].setId(i + 1);
-                        newFlight.getTickets()[i].setDeparture("qw2");
-                        newFlight.getTickets()[i].setArrival("wrwer");
-                        newFlight.getTickets()[i].setPlace("werwer");
+                        Ticket ticket = new Ticket();
+                        ticket.setId(i + 1);
+                        ticket.setDeparture("12:00");
+                        ticket.setArrival("17:00");
+                        ticket.setPlace("Tokyo");
+                        ticket.setFullNameClient("Max");
+                        newFlight.getTickets()[i] = ticket;
                     }
 
                     airportManagement.addNewFlight(newFlight);
@@ -68,7 +80,8 @@ public class Main {
                 case 2:
                     System.out.println("Enter flight number to buy a ticket: ");
                     int num = scanner.nextInt();
-                    String fullName = scanner.nextLine();
+                    System.out.println("Enter full name: ");
+                    String fullName = scanner.next();
                     airportManagement.buyingTicketsByFlightNumber(num, fullName);
                     break;
                 case 3:

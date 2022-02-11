@@ -2,6 +2,8 @@ package com.company.model;
 
 import com.company.enams.Status;
 
+import java.util.Arrays;
+
 public class Flight {
     public static int count = 0;
 
@@ -62,5 +64,17 @@ public class Flight {
 
     public void setTickets(int countTickets) {
         this.tickets = new Ticket[countTickets];
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "id=" + id +
+                ", departureTime='" + departureTime + '\'' +
+                ", arrivalTime='" + arrivalTime + '\'' +
+                ", airplane=" + airplane +
+                ", status=" + status +
+                ", tickets=" + Arrays.toString(tickets) +
+                '}';
     }
 }

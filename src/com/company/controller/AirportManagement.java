@@ -13,7 +13,7 @@ public class AirportManagement implements Management {
     @Override
     public void addNewFlight(Flight flight) {
         flights.add(flight);
-        System.out.println("Dobavlen qweqe");
+        System.out.println("Добавлен рейс ");
     }
 
     @Override
@@ -66,12 +66,5 @@ public class AirportManagement implements Management {
         }
     }
 }
-//        for (Flight flight : flights) {
-//            for (Ticket ticket : tickets) {
-//                if (ticketNumber == 0 && ticketNumber == ticket.getId())
-//                    return flight;
-//            }
-//        }
-//        throw new NullPointerException("We can't find the flight");
-//    }
+
 
