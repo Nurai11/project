@@ -16,6 +16,7 @@ public class AirportManagement implements Management {
         System.out.println("Добавлен рейс ");
     }
 
+
     @Override
     public void buyingTicketsByFlightNumber(int number, String fullName) {
         for (Flight flight : flights) {
@@ -66,5 +67,7 @@ public class AirportManagement implements Management {
         }
     }
 }
+
+
 
 
