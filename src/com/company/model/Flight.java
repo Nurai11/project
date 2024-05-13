@@ -1,7 +1,11 @@
 package com.company.model;
 
+import com.company.dao.DataBaseConnection;
 import com.company.enams.Status;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Arrays;
 
 public class Flight {
@@ -64,6 +68,15 @@ public class Flight {
 
     public void setTickets(int countTickets) {
         this.tickets = new Ticket[countTickets];
+    }
+
+        public int insertFlight(Flight flight) throws SQLException {
+        Connection connection = DataBaseConnection.connect();
+        String SQL = ("INSERT INTO users(id, login, email, password, date_of_registration " +
+                "VALUES(?, ?, ?, ?, ?)");
+        PreparedStatement statement = connection.prepareStatement(SQL);
+        statement.setInt(1, 0 );
+        return 0;
     }
 
     @Override
